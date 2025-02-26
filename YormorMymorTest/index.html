@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>四体液説診断</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <img src="img/header_tittle.svg" alt="My気質診断ロゴ" class="header-logo">
+  </header>  
+  
+  <div class="bg_pattern Paper_v2"></div>
+
+  <main class="home-page">
+    <div class="logo">
+      <img src="img/logo.png" alt="四体液説ロゴ">
+    </div>
+    <p class="description">9個の質問に答えて、
+                       <br>四体液説からあなたの気質を診断してみよう！
+                       <br>気質は全部で4種類。
+                       <br>あなたの気質のマイモアと出会おう！</p>
+    <button class="btn" onclick="startQuiz()">診断する！</button>
+
+    <div class="group-illustration">
+      <img src="img/集合イラスト.png" alt="四体液説キャラクター集合イラスト">
+    </div>
+
+  </main>
+
+  <!-- 質問ページ -->
+  <main class="question-page" style="display: none;">
+    <p class="question" id="question-text">ここに質問が表示されます</p>
+    <div class="options">
+      <button onclick="selectAnswer(1)" id="option1">選択肢1</button>
+      <button onclick="selectAnswer(2)" id="option2">選択肢2</button>
+      <button onclick="selectAnswer(3)" id="option3">選択肢3</button>
+      <button onclick="selectAnswer(4)" id="option4">選択肢4</button>
+    </div>
+  </main>
+
+  <script src="scripts.js"></script>
+
+  <footer>
+    <p>© 2024 四体液説診断</p>
+    <button class="select_language" id="ja" onclick="changeLanguage('ja')">日本語</button>
+    <button class="select_language"onclick="changeLanguage('en')">English</button>
+    <button class="select_language"onclick="changeLanguage('pt')">Português</button>
+  </footer>
+
+  <script src="../languages.js"></script>
+
+</body>
+</html>

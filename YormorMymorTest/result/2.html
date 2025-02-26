@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>診断結果 - タイプ2</title>
+  <link rel="stylesheet" href="resultstyles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="blue-theme">
+  <header>
+    <h1><img src="../img/header_tittle.svg" alt="My気質診断ロゴ" class="header-logo"></h1>
+  </header> 
+  
+  <div class="bg_pattern Paper_v2"></div>
+
+  <main class="result-page">
+    <h2>あなたの気質は...</h2>
+    <p class="resulttype">
+      <img class="resulticon" src="../img/アセット 2.png" alt="黒胆汁質の記号">
+      <span>黒胆汁質</span>
+      <img class="resulticon" src="../img/アセット 2.png" alt="黒胆汁質の記号">
+    </p>
+    <img src="../img/mlanni_illust.svg" alt="冷静タイプのイメージ" class="result-image">
+    <p class="result-summary">
+      あなたは落ち着きがあり、物事を冷静に判断できる性格を持っています。<br>
+      人の意見をよく聞き、深く考えてから行動に移します。
+    </p>
+    
+    <div class="result-container">
+      <div class="result-details">
+        <h4>強み</h4>
+        <p>・冷静に問題を分析し、的確な判断を下せる<br>・集中力が高く、長時間取り組むことができる</p>
+        <h4>弱み</h4>
+        <p>・慎重すぎて行動が遅くなることがある<br>・感情を表に出さないため誤解されることがある</p>
+      </div>
+    </div>
+
+    <button class="btn" onclick="goBack()">トップに戻る</button>
+
+    <div class="mbti-share">
+      <h4>診断結果を共有する</h4>
+      <div class="share-buttons">
+            <!-- Twitter -->
+            <a class="share-twitter" target="_blank" rel="noopener noreferrer">
+              <img src="../img/twitter.png" alt="Twitter">
+              </a>
+                <!-- Facebook -->
+              <a class="share-facebook" target="_blank" rel="noopener noreferrer">
+              <img src="../img/facebook.png" alt="Facebook">
+              </a>
+              <!-- LINE -->
+              <a class="share-line" target="_blank" rel="noopener noreferrer">
+              <img src="../img/line.png" alt="LINE">
+              </a>
+      </div>
+    </div>
+    
+    
+  </main>
+
+  <footer>
+    <p>© 2024 四体液説診断</p>
+    <button class="select_language" id="ja" onclick="changeLanguage('ja')">日本語</button>
+    <button class="select_language" onclick="changeLanguage('en')">English</button>
+    <button class="select_language" onclick="changeLanguage('pt')">Português</button>
+  </footer>
+  
+  <script src="resultscript.js"></script>
+
+</body>
+</html>
