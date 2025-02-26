@@ -91,9 +91,12 @@ function changeLanguage(lang) {
     document.title = translations[lang].title;
     document.querySelector(".result-page h2").textContent = translations[lang].description;
 
-    const resultIndexMatch = window.location.pathname.match(/\/(\d+)\.html/);
-    const resultIndex = resultIndexMatch ? parseInt(resultIndexMatch[1]) - 1 : 0;
-    console.log("resultIndex:", resultIndex); // ← デバッグ用
+    const urlParts = window.location.pathname.split("/");
+    const fileName = urlParts[urlParts.length - 1]; // 1.html などのファイル名を取得
+    const resultIndex = parseInt(fileName.replace(".html", "")) - 1 || 0;
+
+    console.log("resultIndex:", resultIndex); // ← ここで確認！
+
 
     document.querySelector(".resulttype span").textContent = translations[lang].types[resultIndex];
 
