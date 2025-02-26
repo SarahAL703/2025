@@ -88,7 +88,9 @@ function changeLanguage(lang) {
     currentLanguage = lang;
   
    
+    if (translations[lang].title) {
     document.title = translations[lang].title;
+}
     document.querySelector(".result-page h2").textContent = translations[lang].description;
 
     const urlParts = window.location.pathname.split("/");
@@ -97,6 +99,10 @@ function changeLanguage(lang) {
 
     console.log("resultIndex:", resultIndex); // ← ここで確認！
 
+    if (!translations[lang].strengthsList[resultIndex]) {
+    console.error(`Invalid resultIndex: ${resultIndex}`);
+    return; // エラー回避
+}
 
     document.querySelector(".resulttype span").textContent = translations[lang].types[resultIndex];
 
