@@ -91,7 +91,10 @@ function changeLanguage(lang) {
     document.title = translations[lang].title;
     document.querySelector(".result-page h2").textContent = translations[lang].description;
 
-    const resultIndex = parseInt(window.location.pathname.match(/\d+/)[0]) - 1;
+    const resultIndexMatch = window.location.pathname.match(/\/(\d+)\.html/);
+    const resultIndex = resultIndexMatch ? parseInt(resultIndexMatch[1]) - 1 : 0;
+    console.log("resultIndex:", resultIndex); // ← デバッグ用
+
     document.querySelector(".resulttype span").textContent = translations[lang].types[resultIndex];
 
     // ★ `h1` の `textContent` を変更しないように修正
