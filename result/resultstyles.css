@@ -1,0 +1,459 @@
+/* 全体の設定 */
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ボタンの単色設定 */
+.btn {
+  position: relative;
+  background: #78bdf2; /* 単色の水色 */
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.btn:hover {
+  background: #5a9dd8; /* ホバー時の色 */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+  background: #3b78af; /* クリック時の色 */
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  border: 4px solid white;
+  border-radius: 30px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+
+/* バックグラウンド */
+.bg_pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(237, 229, 229); /* デフォルトの背景色 */
+  z-index: -1;
+}
+
+.Paper_v2 {
+  background-image:
+    repeating-linear-gradient(to bottom,
+      transparent 25px,
+      rgba(0, 0, 0, 0.04) 26px,
+      transparent 27px, transparent 51px,
+      rgba(0, 0, 0, 0.04) 52px,
+      transparent 53px, transparent 77px,
+      rgba(0, 0, 0, 0.04) 78px,
+      transparent 79px, transparent 103px,
+      rgba(0, 0, 0, 0.04) 104px,
+      transparent 105px, transparent 129px,
+      rgba(0, 0, 0, 0.04) 130px),
+    repeating-linear-gradient(to right,
+      transparent 25px,
+      rgba(0, 0, 0, 0.04) 26px,
+      transparent 27px, transparent 51px,
+      rgba(0, 0, 0, 0.04) 52px,
+      transparent 53px, transparent 77px,
+      rgba(0, 0, 0, 0.04) 78px,
+      transparent 79px, transparent 103px,
+      rgba(0, 0, 0, 0.04) 104px,
+      transparent 105px, transparent 129px,
+      rgba(0, 0, 0, 0.04) 130px);
+}
+
+/* ヘッダーとフッターの基本スタイル */
+header, footer {
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-logo {
+  width: 100%; /* ヘッダーの幅に合わせる */
+  max-width: 250px;  /* 最大幅を設定 */
+  height: auto;  /* 高さは自動調整 */
+  
+}
+
+/* 言語切り替えボタン（テキストのみ表示） */
+.select_language {
+  background: none;
+  border: none;
+  color: rgb(8, 26, 94);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: color 0.2s ease-in-out;
+  font-family: 'Fredoka', sans-serif;
+}
+#ja {
+  font-family: KFhimaji;
+}
+
+/* ホバー時（マウスを載せたとき） */
+.select_language:hover {
+  color: #1AB2D1;
+}
+
+/* フォーカス時（クリック時の枠線を消す） */
+.select_language:focus {
+  outline: none;
+}
+
+/* 結果イメージ画像のスタイル */
+.result-image {
+  width: 100%;
+  max-width: 500px; /* 最大幅を設定 */
+  height: auto; /* アスペクト比を保持 */
+  display: block; /* ブロック要素として中央寄せの基礎を設定 */
+  margin: 20px auto; /* 上下20px、左右自動で中央寄せ */
+  border-radius: 12px; /* 角を丸める */
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 軽い影を追加 */
+}
+
+
+/* 結果ページのスタイル */
+.result-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Fredoka', sans-serif;
+}
+
+/* 強み・弱みの詳細部分 */
+.result-container {
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto; /* 中央配置 */
+  text-align: left; /* 左揃え */
+}
+
+.result-details h4 {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 10px;
+  /* border-left: 4px solid #9F79F2;  */
+  /* 左にアクセントライン */
+  padding-left: 10px;
+  font-family:'Courier New', Courier, monospace;
+}
+
+.result-details p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* 見出しと要約のスタイル（変更なし） */
+.result-summary {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+.result-description {
+  /* white-space: pre-line; 改行をHTML内で反映させる */
+  font-weight: 500; /* テキストを少し強調 */
+  font-size: 1.625rem; /* 見やすい大きさに調整 */
+  color: #333; /* 読みやすい落ち着いた色 */
+  text-align: center; /* 左揃えにして読みやすさを重視 */
+  margin: 10px 0; /* 上下に余白を追加 */
+}
+
+
+.result-container h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* 気質タイプのスタイル */
+.resulttype {
+  font-size: 2.5rem; /* サイズを少し大きく */
+  font-weight: bold; /* 太字で強調 */
+  text-align: center; /* 中央寄せ */
+  margin-bottom: 15px; /* 下に余白を追加 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 軽い影を追加 */
+}
+
+.resulticon{
+  max-width: 50px;
+  display: inline-block;
+  vertical-align: middle
+}
+
+.result-container p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.result-container img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.result-container button {
+  background: linear-gradient(120deg, #9F79F2, #B3C3F2);
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.result-container button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.mbti-share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.mbti-share h4 {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.mbti-share .share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.mbti-share a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  padding: 12px 18px;
+  border-radius: 60px;
+  margin: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mbti-share a img {
+  width: 40px;
+  height: 40px;
+  /* margin-right: 8px; */
+}
+
+/* SNSボタンの個別色 */
+.share-twitter {
+  background-color: #1DA1F2;
+  box-shadow: 0 3px 6px rgba(29, 161, 242, 0.4);
+}
+
+.share-facebook {
+  background-color: #1877F2;
+  box-shadow: 0 3px 6px rgba(24, 119, 242, 0.4);
+}
+
+.share-line {
+  background-color: #00B900;
+  box-shadow: 0 3px 6px rgba(0, 185, 0, 0.4);
+}
+
+.share-buttons a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ページごとの配色変更 */
+body.yellow-theme header, body.yellow-theme footer {
+  background: repeating-linear-gradient(45deg, #fcf29c, #fcf29c 20px, #f0da80 20px, #f0da80 40px); /* 黄色 */
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600; /* SemiBold */
+}
+
+body.yellow-theme .bg_pattern {
+  background-color: #FFF9C4; /* 薄い黄色 */
+}
+
+body.yellow-theme .result-details h4 {
+  border-left: 10px solid #aaa82c; /* 左にアクセントライン */
+}
+
+body.blue-theme header, body.blue-theme footer {
+  background: repeating-linear-gradient(45deg, #64B5F6, #64B5F6 20px, #42A5F5 20px, #42A5F5 40px); /* 青色 */
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600; /* SemiBold */
+}
+
+body.blue-theme .bg_pattern {
+  background-color: #E3F2FD; /* 薄い青 */
+}
+
+body.blue-theme .result-details h4 {
+  border-left: 10px solid #2c34aa; /* 左にアクセントライン */
+}
+
+body.red-theme header, body.red-theme footer {
+  background: repeating-linear-gradient(45deg, #f6918f, #f6918f 20px, #e98280 20px, #e98280 40px); /* 赤色 */
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600; /* SemiBold */
+}
+
+body.red-theme .bg_pattern {
+  background-color: #FFEBEE; /* 薄い赤 */
+}
+
+body.red-theme .result-details h4 {
+  border-left: 10px solid #d66748; /* 左にアクセントライン */
+}
+
+body.purple-theme header, body.purple-theme footer {
+  background: repeating-linear-gradient(45deg, #AB47BC, #AB47BC 20px, #9C27B0 20px, #9C27B0 40px); /* 紫色 */
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600; /* SemiBold */
+}
+
+body.purple-theme .bg_pattern {
+  background-color: #F3E5F5; /* 薄い紫 */
+}
+
+body.purple-theme .result-details h4 {
+  border-left: 10px solid rgb(153, 39, 119); /* 左にアクセントライン */
+}
+
+
+/* ======== モバイル対応（iPhone 12 基準） ======== */
+@media screen and (max-width: 480px) {
+  
+  /* ヘッダー */
+  header {
+    padding: 8px 0;
+    font-size: 1.2rem;
+  }
+
+  /* 診断結果タイトル */
+  .resulttype {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  /* 診断結果アイコン */
+  .resulticon {
+    max-width: 40px;
+  }
+
+  /* 診断結果の画像 */
+  .result-image {
+    max-width: 85%;
+    margin: 10px auto;
+  }
+
+  /* 診断結果の文章 */
+  .result-summary {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 10px;
+  }
+
+  /* 診断の詳細情報（強み・弱み） */
+  .result-container {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  .result-details h4 {
+    font-size: 1rem;
+    padding-left: 5px;
+  }
+
+  .result-details p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* トップに戻るボタン */
+  .btn {
+    font-size: 20px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    width: 85%;
+  }
+
+  /* SNSシェアセクション */
+  .mbti-share h4 {
+    font-size: 1.2rem;
+  }
+
+  .mbti-share .share-buttons {
+    flex-direction: column; /* スマホでは縦並び */
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mbti-share a {
+    font-size: 1rem;
+    padding: 10px 15px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mbti-share a img {
+    width: 35px;
+    height: 35px;
+  }
+}
