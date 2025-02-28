@@ -127,21 +127,18 @@ function changeLanguage(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ?以降のパラメータを削除して、URLを書き換え
-  if (window.location.search) {
-    const cleanURL = window.location.origin + window.location.pathname;
-    window.history.replaceState(null, "", cleanURL); // クリーンなURLにリダイレクト
-  }
-
-  const baseURL = window.location.origin + window.location.pathname; // クリーンなURL
-  const description = "私の診断結果はこちら！";
-
+  // 動的に画像を変更する
+  const pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png"; // この部分はページごとに変更
+  
+  // OGPとTwitterカードの画像を更新
+  document.querySelector('meta[property="og:image"]').setAttribute("content", pageImage);
+  document.querySelector('meta[name="twitter:image"]').setAttribute("content", pageImage);
+  
+  const baseURL = window.location.origin + window.location.pathname;
   document.querySelector('.share-twitter').href =
     `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)}`;
-
   document.querySelector('.share-facebook').href =
     `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseURL)}`;
-
   document.querySelector('.share-line').href =
     `https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)}`;
 });
