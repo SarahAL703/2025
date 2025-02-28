@@ -125,29 +125,30 @@ function changeLanguage(lang) {
 
     updateShareLinks();
 }
-
 document.addEventListener('DOMContentLoaded', () => {
-  // 現在のページに基づいて画像URLを設定
+  // 現在のページに基づいて画像URLと説明文を設定
   const fileName = window.location.pathname.split("/").pop(); // ページのファイル名を取得 (例: 2.html, 3.html)
-  
-  let pageImage = "";
 
-  // ページごとに異なるサムネイル画像URLを設定
+  let pageImage = "";
+  let description = "";  // 各ページに異なる説明文を設定
+
   if (fileName === "2.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png";
+    description = "あなたは落ち着きがあり、物事を冷静に判断できる性格です。";
   } else if (fileName === "3.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult3.png";
+    description = "あなたは情熱的でエネルギッシュな性格です！";
   } else if (fileName === "4.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult4.png";
+    description = "あなたは冷静で穏やかな性格の持ち主です。";
   }
 
   // OGPとTwitterカードの画像URLを動的に更新
   document.querySelector('meta[property="og:image"]').setAttribute("content", pageImage);
   document.querySelector('meta[name="twitter:image"]').setAttribute("content", pageImage);
-  
+
   // シェアリンクも動的に更新
   const baseURL = window.location.origin + window.location.pathname;
-  const description = "私の診断結果はこちら！";
 
   document.querySelector('.share-twitter').href =
     `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)}`;
