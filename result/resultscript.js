@@ -125,10 +125,11 @@ function changeLanguage(lang) {
 
     updateShareLinks();
 }
-document.addEventListener('DOMContentLoaded', () => {
-  // 現在のページに基づいて画像URLと説明文を設定
-  const fileName = window.location.pathname.split("/").pop(); // ページのファイル名を取得 (例: 2.html, 3.html)
 
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 現在のページのファイル名を取得 (3.htmlの場合)
+  const fileName = window.location.pathname.split("/").pop(); // 例: 2.html, 3.html
   let pageImage = "";
   let description = "";  // 各ページに異なる説明文を設定
 
@@ -149,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // シェアリンクも動的に更新
   const baseURL = window.location.origin + window.location.pathname;
-
   document.querySelector('.share-twitter').href =
     `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)}`;
   document.querySelector('.share-facebook').href =
@@ -157,6 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.share-line').href =
     `https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)}`;
 });
+
 
 
 function goBack() {
