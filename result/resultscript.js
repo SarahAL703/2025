@@ -126,12 +126,11 @@ function changeLanguage(lang) {
     updateShareLinks();
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
   // ?以降のパラメータを削除して、URLを書き換え
   if (window.location.search) {
     const cleanURL = window.location.origin + window.location.pathname;
-    window.history.replaceState(null, "", cleanURL);
+    window.history.replaceState(null, "", cleanURL); // クリーンなURLにリダイレクト
   }
 
   const baseURL = window.location.origin + window.location.pathname; // クリーンなURL
@@ -146,8 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.share-line').href =
     `https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)}`;
 });
-
-
 
 function goBack() {
     window.location.href = "../index.html"; // これでも試してみて！
