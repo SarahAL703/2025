@@ -128,23 +128,19 @@ function changeLanguage(lang) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    const pageURL = window.location.href.includes("file://") ? "https://あなたのサイトURL" : window.location.href;
-    const description = "私の診断結果はこちら！";
+  const baseURL = window.location.origin + window.location.pathname; // ?以降を削除したURL
+  const description = "私の診断結果はこちら！";
 
-    document.querySelector('.share-twitter').setAttribute("href",
-      `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(pageURL)}`
-    );
+  document.querySelector('.share-twitter').href =
+    `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)}`;
 
-    document.querySelector('.share-facebook').setAttribute("href",
-      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageURL)}`
-    );
+  document.querySelector('.share-facebook').href =
+    `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseURL)}`;
 
-    document.querySelector('.share-line').setAttribute("href",
-      `https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + pageURL)}`
-    );
-  }, 100); // 少し遅延させる
+  document.querySelector('.share-line').href =
+    `https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)}`;
 });
+
 
 function goBack() {
     window.location.href = "../index.html"; // これでも試してみて！
