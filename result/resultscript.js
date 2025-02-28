@@ -127,14 +127,28 @@ function changeLanguage(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 動的に画像を変更する
-  const pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png"; // この部分はページごとに変更
+  // 現在のページに基づいて画像URLを設定
+  const fileName = window.location.pathname.split("/").pop(); // ページのファイル名を取得 (例: 2.html, 3.html)
   
-  // OGPとTwitterカードの画像を更新
+  let pageImage = "";
+
+  // ページごとに異なるサムネイル画像URLを設定
+  if (fileName === "2.html") {
+    pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png";
+  } else if (fileName === "3.html") {
+    pageImage = "https://sarahal703.github.io/2025/img/shareresult3.png";
+  } else if (fileName === "4.html") {
+    pageImage = "https://sarahal703.github.io/2025/img/shareresult4.png";
+  }
+
+  // OGPとTwitterカードの画像URLを動的に更新
   document.querySelector('meta[property="og:image"]').setAttribute("content", pageImage);
   document.querySelector('meta[name="twitter:image"]').setAttribute("content", pageImage);
   
+  // シェアリンクも動的に更新
   const baseURL = window.location.origin + window.location.pathname;
+  const description = "私の診断結果はこちら！";
+
   document.querySelector('.share-twitter').href =
     `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)}`;
   document.querySelector('.share-facebook').href =
@@ -142,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.share-line').href =
     `https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)}`;
 });
+
 
 function goBack() {
     window.location.href = "../index.html"; // これでも試してみて！
