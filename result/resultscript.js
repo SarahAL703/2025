@@ -128,7 +128,13 @@ function changeLanguage(lang) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const baseURL = window.location.origin + window.location.pathname; // ?以降を削除したURL
+  // ?以降のパラメータを削除して、URLを書き換え
+  if (window.location.search) {
+    const cleanURL = window.location.origin + window.location.pathname;
+    window.history.replaceState(null, "", cleanURL);
+  }
+
+  const baseURL = window.location.origin + window.location.pathname; // クリーンなURL
   const description = "私の診断結果はこちら！";
 
   document.querySelector('.share-twitter').href =
@@ -140,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.share-line').href =
     `https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)}`;
 });
+
 
 
 function goBack() {
