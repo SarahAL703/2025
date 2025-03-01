@@ -156,7 +156,6 @@ document.querySelector('.share-twitter').href =
   document.querySelector('meta[name="twitter:image"]').setAttribute("content", pageImage);
 
   // シェアリンクも動的に更新
-// URLエンコードしてシェアリンクを作成
 document.querySelector('.share-twitter').href =
   `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)}&hashtags=ユーモアマイモア,私の気質`;
 document.querySelector('.share-facebook').href =
