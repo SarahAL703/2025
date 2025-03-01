@@ -100,13 +100,13 @@ function changeLanguage(lang) {
     console.log("resultIndex:", resultIndex); // ← ここで確認！
 
     if (!translations[lang].strengthsList[resultIndex]) {
-    console.error(Invalid resultIndex: ${resultIndex});
+    console.error(`Invalid resultIndex: ${resultIndex}`);
     return; // エラー回避
 }
 
     document.querySelector(".resulttype span").textContent = translations[lang].types[resultIndex];
 
-    // ★ h1 の textContent を変更しないように修正
+    // ★ `h1` の `textContent` を変更しないように修正
     document.querySelector(".header-logo").alt = translations[lang].title;
 
     // ★ここを修正！.resulttype の <span> を変更する
@@ -151,16 +151,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // シェアリンクも動的に更新
   const baseURL = window.location.origin + window.location.pathname;
   document.querySelector('.share-twitter').href =
-    https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)};
+    `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)}`;
   document.querySelector('.share-facebook').href =
-    https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseURL)};
+    `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseURL)}`;
   document.querySelector('.share-line').href =
-    https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)};
+    `https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)}`;
 });
 
 
 
 function goBack() {
-    console.log("トップに戻る"); // 追加してデバッグ
     window.location.href = "../index.html"; // これでも試してみて！
 }
