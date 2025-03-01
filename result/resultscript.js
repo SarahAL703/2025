@@ -123,7 +123,6 @@ function changeLanguage(lang) {
     document.querySelector(".btn").textContent = translations[lang].returnButton;
     document.querySelector(".mbti-share h4").textContent = translations[lang].shareTitle;
 
-    updateShareLinks();
 }
 
 
