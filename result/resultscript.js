@@ -123,38 +123,39 @@ function changeLanguage(lang) {
     document.querySelector(".btn").textContent = translations[lang].returnButton;
     document.querySelector(".mbti-share h4").textContent = translations[lang].shareTitle;
 
+    updateShareLinks();
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
-  const fileName = window.location.pathname.split("/").pop(); 
+  // 現在のページのファイル名を取得 (3.htmlの場合)
+  const fileName = window.location.pathname.split("/").pop(); // 例: 2.html, 3.html
   let pageImage = "";
   let description = "";  // 各ページに異なる説明文を設定
 
-  if (fileName === "1.html") {
-    pageImage = "https://sarahal703.github.io/2025/img/shareresult1.png";
-    description = "あなたはエネルギッシュで情熱的性格です。　#ユーモアマイモア　#私の気質";
-  } else if (fileName === "2.html") {
+  if (fileName === "2.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png";
-    description = "あなたは落ち着きがあり、物事を冷静に判断できるの持ち主です。　#ユーモアマイモア　#私の気質";
+    description = "あなたは落ち着きがあり、物事を冷静に判断できる性格です。";
   } else if (fileName === "3.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult3.png";
-    description = "あなたは情熱的でエネルギッシュな性格です！　#ユーモアマイモア　#私の気質";
+    description = "あなたは情熱的でエネルギッシュな性格です！";
   } else if (fileName === "4.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult4.png";
-    description = "あなたは冷静で穏やかな性格の持ち主です。　#ユーモアマイモア　#私の気質";
+    description = "あなたは冷静で穏やかな性格の持ち主です。";
   }
-
-  // クエリパラメータを削除したURLを使用
-  const baseURL = window.location.origin + window.location.pathname;
-
-  // シェアリンクを正しく設定
-  document.querySelector('.share-twitter').href = https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)};
-  document.querySelector('.share-facebook').href = https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseURL)};
-  document.querySelector('.share-line').href = https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)};
 
   // OGPとTwitterカードの画像URLを動的に更新
   document.querySelector('meta[property="og:image"]').setAttribute("content", pageImage);
   document.querySelector('meta[name="twitter:image"]').setAttribute("content", pageImage);
+
+  // シェアリンクも動的に更新
+  const baseURL = window.location.origin + window.location.pathname;
+  document.querySelector('.share-twitter').href =
+    https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)};
+  document.querySelector('.share-facebook').href =
+    https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseURL)};
+  document.querySelector('.share-line').href =
+    https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)};
 });
 
 
@@ -162,12 +163,3 @@ document.addEventListener('DOMContentLoaded', () => {
 function goBack() {
     window.location.href = "../index.html"; // これでも試してみて！
 }
-
-悪化し、1.htmlのボタンを押してもトップに戻れないし結果の共有もできなくなったの
-
-F12で表示されるのはError with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.
-1.html?description=%E7%86%B1%E8%A1%80%E7%9A%84%E3%81%A7%E8%A1%8C%E5%8B%95%E7%9A%84%E3%81%AA%E3%81%82%E3%81%AA%E3%81%9F%EF%BC%81:81 Uncaught SyntaxError: Invalid or unexpected token (at 1.html?description=%E7%86%B1%E8%A1%80%E7%9A%84%E3%81%A7%E8%A1%8C%E5%8B%95%E7%9A%84%E3%81%AA%E3%81%82%E3%81%AA%E3%81%9F%EF%BC%81:81:23)
-resultscript.js:103 Uncaught SyntaxError: missing ) after argument list (at resultscript.js:103:19)
-1.html?description=%E7%86%B1%E8%A1%80%E7%9A%84%E3%81%A7%E8%A1%8C%E5%8B%95%E7%9A%84%E3%81%AA%E3%81%82%E3%81%AA%E3%81%9F%EF%BC%81:56 Uncaught ReferenceError: goBack is not defined
-    at HTMLButtonElement.onclick (1.html?description=%E7%86%B1%E8%A1%80%E7%9A%84%E3%81%A7%E8%A1%8C%E5%8B%95%E7%9A%84%E3%81%AA%E3%81%82%E3%81%AA%E3%81%9F%EF%BC%81:56:44)
-onclick @ 1.html?description=%E7%86%B1%E8%A1%80%E7%9A%84%E3%81%A7%E8%A1%8C%E5%8B%95%E7%9A%84%E3%81%AA%E3%81%82%E3%81%AA%E3%81%9F%EF%BC%81:56
