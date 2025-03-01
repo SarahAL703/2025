@@ -123,6 +123,7 @@ function changeLanguage(lang) {
     document.querySelector(".btn").textContent = translations[lang].returnButton;
     document.querySelector(".mbti-share h4").textContent = translations[lang].shareTitle;
 
+    updateShareLinks();
 }
 
 
@@ -132,33 +133,26 @@ document.addEventListener('DOMContentLoaded', () => {
   let pageImage = "";
   let description = "";  // 各ページに異なる説明文を設定
 
-  if (fileName === "1.html") {
-    pageImage = "https://sarahal703.github.io/2025/img/shareresult1.png";
-    description = "あなたはエネルギッシュで情熱的性格です。";
-  } else if (fileName === "2.html") {
+  if (fileName === "2.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png";
-    description = "あなたは落ち着きがあり、物事を冷静に判断できるの持ち主です。";
-  }else if (fileName === "3.html") {
+    description = "あなたは落ち着きがあり、物事を冷静に判断できる性格です。";
+  } else if (fileName === "3.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult3.png";
-    description = "あなたは情熱的でエネルギッシュな性格です。";
+    description = "あなたは情熱的でエネルギッシュな性格です！";
   } else if (fileName === "4.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult4.png";
     description = "あなたは冷静で穏やかな性格の持ち主です。";
   }
-
-// URLエンコードしてシェアリンクを作成
-const baseURL = window.location.origin + window.location.pathname;
-document.querySelector('.share-twitter').href =
-  https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}%0A${encodeURIComponent(baseURL)};
 
   // OGPとTwitterカードの画像URLを動的に更新
   document.querySelector('meta[property="og:image"]').setAttribute("content", pageImage);
   document.querySelector('meta[name="twitter:image"]').setAttribute("content", pageImage);
 
   // シェアリンクも動的に更新
-document.querySelector('.share-twitter').href =
-  `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)}&hashtags=ユーモアマイモア,私の気質`;
-document.querySelector('.share-facebook').href =
+  const baseURL = window.location.origin + window.location.pathname;
+  document.querySelector('.share-twitter').href =
+    https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)};
+  document.querySelector('.share-facebook').href =
     https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseURL)};
   document.querySelector('.share-line').href =
     https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)};
