@@ -125,7 +125,6 @@ function changeLanguage(lang) {
 
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
   // 現在のページのファイル名を取得 (1.html, 2.html, 3.html など)
   const fileName = window.location.pathname.split("/").pop(); 
