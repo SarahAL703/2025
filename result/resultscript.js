@@ -112,7 +112,7 @@ function changeLanguage(lang) {
     // ★ここを修正！.resulttype の <span> を変更する
     document.querySelector(".resulttype span").textContent = translations[lang].types[resultIndex];
 
-    document.querySelector(".result-summary").innerHTML = translations[lang].summaries[resultIndex];
+　　document.querySelector(".result-summary").innerHTML = translations[lang].summaries[resultIndex];
 
     document.querySelector(".result-container h4:nth-of-type(1)").textContent = translations[lang].strengths;
     document.querySelector(".result-container p:nth-of-type(1)").innerHTML = translations[lang].strengthsList[resultIndex].join("<br>");
