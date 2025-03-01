@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // URLエンコードしてシェアリンクを作成
 const baseURL = window.location.origin + window.location.pathname;
 document.querySelector('.share-twitter').href =
-  `https://twitter.com/intent/tweet?text=${encodeURIComponent(description + " " + baseURL)}`;
+  `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}%0A${encodeURIComponent(baseURL)}`;
 
   // OGPとTwitterカードの画像URLを動的に更新
   document.querySelector('meta[property="og:image"]').setAttribute("content", pageImage);
