@@ -75,22 +75,7 @@
       </div>
     </div>
     
-    <script>
-     document.addEventListener('DOMContentLoaded', () => {
-  const pageURL = window.location.href;
-  const description = "私の診断結果はこちら！";
-
-  document.querySelector('.share-twitter').href =
-    `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(pageURL)}`;
-
-  document.querySelector('.share-facebook').href =
-    `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageURL)}`;
-
-  document.querySelector('.share-line').href =
-    `https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + pageURL)}`;
-});
-
-    </script>
+    
     
 
 
