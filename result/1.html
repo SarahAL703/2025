@@ -28,7 +28,7 @@
   <header>
     <h1><img src="../img/header_tittle.svg" alt="My気質診断ロゴ" class="header-logo"></h1>
   </header>  
-  
+
   <div class="bg_pattern Paper_v2"></div>
 
   <main class="result-page">
@@ -43,7 +43,7 @@
       あなたはエネルギッシュで情熱的。<br>
       周囲を引っ張るリーダーシップが光ります！
     </p>
-  
+
     <div class="result-container">
       <div class="result-details">
         <h4>強み</h4>
@@ -52,7 +52,7 @@
         <p>・感情的になりやすい<br>・冷静さを欠く場面がある</p>
       </div>
     </div>
-  
+
     <button class="btn" onclick="goBack()">トップに戻る</button>
 
     <div class="mbti-share">
@@ -71,27 +71,28 @@
       <a class="share-line" target="_blank" rel="noopener noreferrer">
       <img src="../img/line.png" alt="LINE">
       </a>
-        
+
       </div>
     </div>
-    
+
     <script>
      document.addEventListener('DOMContentLoaded', () => {
   const pageURL = window.location.href;
-  const description = "私の診断結果はこちら！;
+  const description = "私の診断結果はこちら！";
 
   document.querySelector('.share-twitter').href =
-    https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(pageURL)};
+    `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(pageURL)}`;
 
   document.querySelector('.share-facebook').href =
-    https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageURL)};
+    `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageURL)}`;
 
   document.querySelector('.share-line').href =
-    https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + pageURL)};
+    `https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + pageURL)}`;
 });
 
     </script>
-    
+
+
 
   </main>
 
@@ -101,8 +102,8 @@
     <button class="select_language" onclick="changeLanguage('en')">English</button>
     <button class="select_language" onclick="changeLanguage('pt')">Português</button>
     </footer>
-  
+
   <script src="resultscript.js"></script>
-  
+
 </body>
 </html>
