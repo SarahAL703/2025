@@ -86,10 +86,6 @@ let currentLanguage = "ja";
 
 function changeLanguage(lang) {
     currentLanguage = lang;
-  
-   function updateShareLinks() {
-    console.log("シェアリンクを更新！");
-}
 
     if (translations[lang].title) {
     document.title = translations[lang].title;
@@ -136,9 +132,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let pageImage = "";
   let description = "";  // 各ページに異なる説明文を設定
 
-  if (fileName === "2.html") {
-    pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png";
+  if (fileName === "1.html") {
+    pageImage = "https://sarahal703.github.io/2025/img/shareresult1.png";
     description = "あなたは落ち着きがあり、物事を冷静に判断できる性格です。";
+  }  else if (fileName === "2.html") {
+    pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png";
+    description = "あなたは落ち着きがあり、物事を冷静に判断できるです！";
   } else if (fileName === "3.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult3.png";
     description = "あなたは情熱的でエネルギッシュな性格です！";
