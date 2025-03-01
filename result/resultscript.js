@@ -100,13 +100,13 @@ function changeLanguage(lang) {
     console.log("resultIndex:", resultIndex); // ← ここで確認！
 
     if (!translations[lang].strengthsList[resultIndex]) {
-    console.error(`Invalid resultIndex: ${resultIndex}`);
+    console.error(Invalid resultIndex: ${resultIndex});
     return; // エラー回避
 }
 
     document.querySelector(".resulttype span").textContent = translations[lang].types[resultIndex];
 
-    // ★ `h1` の `textContent` を変更しないように修正
+    // ★ h1 の textContent を変更しないように修正
     document.querySelector(".header-logo").alt = translations[lang].title;
 
     // ★ここを修正！.resulttype の <span> を変更する
@@ -134,22 +134,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (fileName === "1.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult1.png";
-    description = "あなたはエネルギッシュで情熱的性格です。";
+    description = "あなたはエネルギッシュで情熱的性格です。　#ユーモアマイモア　#私の気質";
   } else if (fileName === "2.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png";
-    description = "あなたは落ち着きがあり、物事を冷静に判断できるの持ち主です。";
+    description = "あなたは落ち着きがあり、物事を冷静に判断できるの持ち主です。　#ユーモアマイモア　#私の気質";
   }else if (fileName === "3.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult3.png";
-    description = "あなたは情熱的でエネルギッシュな性格です！";
+    description = "あなたは情熱的でエネルギッシュな性格です！　#ユーモアマイモア　#私の気質";
   } else if (fileName === "4.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult4.png";
-    description = "あなたは冷静で穏やかな性格の持ち主です。";
+    description = "あなたは冷静で穏やかな性格の持ち主です。　#ユーモアマイモア　#私の気質";
   }
 
 // URLエンコードしてシェアリンクを作成
 const baseURL = window.location.origin + window.location.pathname;
 document.querySelector('.share-twitter').href =
-  `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}%0A${encodeURIComponent(baseURL)}`;
+  https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}%0A${encodeURIComponent(baseURL)};
 
   // OGPとTwitterカードの画像URLを動的に更新
   document.querySelector('meta[property="og:image"]').setAttribute("content", pageImage);
