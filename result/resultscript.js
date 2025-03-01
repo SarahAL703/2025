@@ -97,7 +97,7 @@ function changeLanguage(lang) {
     const fileName = urlParts[urlParts.length - 1]; // 1.html などのファイル名を取得
     const resultIndex = parseInt(fileName.replace(".html", "")) - 1 || 0;
 
-    console.log("Invalid resultIndex: " + resultIndex); // エラーメッセージを文字列として正しく表示
+    console.log("resultIndex:", resultIndex); // ← ここで確認！
 
     if (!translations[lang].strengthsList[resultIndex]) {
     console.error(Invalid resultIndex: ${resultIndex});
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (fileName === "1.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult1.png";
-    description = encodeURIComponent("あなたはエネルギッシュで情熱的性格です。　#ユーモアマイモア　#私の気質");
+    description = "あなたはエネルギッシュで情熱的性格です。　#ユーモアマイモア　#私の気質";
   } else if (fileName === "2.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png";
     description = "あなたは落ち着きがあり、物事を冷静に判断できるの持ち主です。　#ユーモアマイモア　#私の気質";
@@ -148,9 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const baseURL = window.location.origin + window.location.pathname;
 
   // シェアリンクを正しく設定
-  document.querySelector('.share-twitter').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)}`;
-  document.querySelector('.share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseURL)}`;
-  document.querySelector('.share-line').href = `https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)}`;
+  document.querySelector('.share-twitter').href = https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)};
+  document.querySelector('.share-facebook').href = https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseURL)};
+  document.querySelector('.share-line').href = https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)};
 
   // OGPとTwitterカードの画像URLを動的に更新
   document.querySelector('meta[property="og:image"]').setAttribute("content", pageImage);
@@ -158,6 +158,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
 function goBack() {
-    window.location.href = "../index.html"; // ここでトップページに遷移する
+    window.location.href = "../index.html"; // これでも試してみて！
 }
+
+悪化し、1.htmlのボタンを押してもトップに戻れないし結果の共有もできなくなったの
+
+F12で表示されるのはError with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.
+1.html?description=%E7%86%B1%E8%A1%80%E7%9A%84%E3%81%A7%E8%A1%8C%E5%8B%95%E7%9A%84%E3%81%AA%E3%81%82%E3%81%AA%E3%81%9F%EF%BC%81:81 Uncaught SyntaxError: Invalid or unexpected token (at 1.html?description=%E7%86%B1%E8%A1%80%E7%9A%84%E3%81%A7%E8%A1%8C%E5%8B%95%E7%9A%84%E3%81%AA%E3%81%82%E3%81%AA%E3%81%9F%EF%BC%81:81:23)
+resultscript.js:103 Uncaught SyntaxError: missing ) after argument list (at resultscript.js:103:19)
+1.html?description=%E7%86%B1%E8%A1%80%E7%9A%84%E3%81%A7%E8%A1%8C%E5%8B%95%E7%9A%84%E3%81%AA%E3%81%82%E3%81%AA%E3%81%9F%EF%BC%81:56 Uncaught ReferenceError: goBack is not defined
+    at HTMLButtonElement.onclick (1.html?description=%E7%86%B1%E8%A1%80%E7%9A%84%E3%81%A7%E8%A1%8C%E5%8B%95%E7%9A%84%E3%81%AA%E3%81%82%E3%81%AA%E3%81%9F%EF%BC%81:56:44)
+onclick @ 1.html?description=%E7%86%B1%E8%A1%80%E7%9A%84%E3%81%A7%E8%A1%8C%E5%8B%95%E7%9A%84%E3%81%AA%E3%81%82%E3%81%AA%E3%81%9F%EF%BC%81:56
