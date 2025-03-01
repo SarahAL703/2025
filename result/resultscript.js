@@ -112,7 +112,7 @@ function changeLanguage(lang) {
     // ★ここを修正！.resulttype の <span> を変更する
     document.querySelector(".resulttype span").textContent = translations[lang].types[resultIndex];
 
-　　document.querySelector(".result-summary").innerHTML = translations[lang].summaries[resultIndex];
+    document.querySelector(".result-summary").innerHTML = translations[lang].summaries[resultIndex];
 
     document.querySelector(".result-container h4:nth-of-type(1)").textContent = translations[lang].strengths;
     document.querySelector(".result-container p:nth-of-type(1)").innerHTML = translations[lang].strengthsList[resultIndex].join("<br>");
@@ -123,7 +123,6 @@ function changeLanguage(lang) {
     document.querySelector(".btn").textContent = translations[lang].returnButton;
     document.querySelector(".mbti-share h4").textContent = translations[lang].shareTitle;
 
-    updateShareLinks();
 }
 
 
@@ -135,17 +134,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (fileName === "1.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult1.png";
-    description = "あなたは落エネルギッシュで情熱的な性格です。";
+    description = "あなたはエネルギッシュで情熱的性格です。　#ユーモアマイモア　#私の気質";
   } else if (fileName === "2.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png";
-    description = "あなたは落ち着きがあり、物事を冷静に判断できる性格性格です！";
-  } else if (fileName === "3.html") {
+    description = "あなたは落ち着きがあり、物事を冷静に判断できるの持ち主です。　#ユーモアマイモア　#私の気質";
+  }else if (fileName === "3.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult3.png";
-    description = "あなたは情熱的でエネルギッシュな性格です！";
+    description = "あなたは情熱的でエネルギッシュな性格です！　#ユーモアマイモア　#私の気質";
   } else if (fileName === "4.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult4.png";
-    description = "あなたは冷静で穏やかな性格の持ち主です。";
+    description = "あなたは冷静で穏やかな性格の持ち主です。　#ユーモアマイモア　#私の気質";
   }
+
+// URLエンコードしてシェアリンクを作成
+const baseURL = window.location.origin + window.location.pathname;
+document.querySelector('.share-twitter').href =
+  https://twitter.com/intent/tweet?text=${encodeURIComponent(description + " " + baseURL)};
 
   // OGPとTwitterカードの画像URLを動的に更新
   document.querySelector('meta[property="og:image"]').setAttribute("content", pageImage);
