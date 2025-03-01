@@ -142,6 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
   } else if (fileName === "4.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult4.png";
     description = "あなたは冷静で穏やかな性格の持ち主です。";
+  }else if (fileName === "1.html") {
+    pageImage = "https://sarahal703.github.io/2025/img/shareresult1.png";
+    description = "あなたは冷エネルギッシュで情熱的の持ち主です。";
   }
 
   // OGPとTwitterカードの画像URLを動的に更新
