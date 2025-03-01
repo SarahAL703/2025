@@ -158,7 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
 function goBack() {
-    window.location.href = "../index.html"; // これでも試してみて！
+    window.location.href = "../index.html"; // ここでトップページに遷移する
 }
