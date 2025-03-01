@@ -126,7 +126,6 @@ function changeLanguage(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 現在のページのファイル名を取得 (1.html, 2.html, 3.html など)
   const fileName = window.location.pathname.split("/").pop(); 
   let pageImage = "";
   let description = "";  // 各ページに異なる説明文を設定
@@ -145,9 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
     description = "あなたは冷静で穏やかな性格の持ち主です。　#ユーモアマイモア　#私の気質";
   }
 
-  // URLエンコードしてシェアリンクを作成
+  // クエリパラメータを削除したURLを使用
   const baseURL = window.location.origin + window.location.pathname;
-  
+
   // シェアリンクを正しく設定
   document.querySelector('.share-twitter').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)}`;
   document.querySelector('.share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseURL)}`;
@@ -157,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('meta[property="og:image"]').setAttribute("content", pageImage);
   document.querySelector('meta[name="twitter:image"]').setAttribute("content", pageImage);
 });
+
 
 
 function goBack() {
