@@ -87,7 +87,10 @@ let currentLanguage = "ja";
 function changeLanguage(lang) {
     currentLanguage = lang;
   
-   
+   function updateShareLinks() {
+    console.log("シェアリンクを更新！");
+}
+
     if (translations[lang].title) {
     document.title = translations[lang].title;
 }
