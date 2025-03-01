@@ -133,18 +133,18 @@ document.addEventListener('DOMContentLoaded', () => {
   let pageImage = "";
   let description = "";  // 各ページに異なる説明文を設定
 
-  if (fileName === "2.html") {
+  if (fileName === "1.html") {
+    pageImage = "https://sarahal703.github.io/2025/img/shareresult1.png";
+    description = "あなたはエネルギッシュで情熱的性格です。";
+  } else if (fileName === "2.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png";
-    description = "あなたは落ち着きがあり、物事を冷静に判断できる性格です。";
-  } else if (fileName === "3.html") {
+    description = "あなたは落ち着きがあり、物事を冷静に判断できるの持ち主です。";
+  }else if (fileName === "3.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult3.png";
     description = "あなたは情熱的でエネルギッシュな性格です！";
   } else if (fileName === "4.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult4.png";
     description = "あなたは冷静で穏やかな性格の持ち主です。";
-  }else if (fileName === "1.html") {
-    pageImage = "https://sarahal703.github.io/2025/img/shareresult1.png";
-    description = "あなたは冷エネルギッシュで情熱的の持ち主です。";
   }
 
   // OGPとTwitterカードの画像URLを動的に更新
