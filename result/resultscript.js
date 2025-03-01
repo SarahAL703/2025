@@ -133,9 +133,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let pageImage = "";
   let description = "";  // 各ページに異なる説明文を設定
 
-  if (fileName === "2.html") {
+  if (fileName === "1.html") {
+    pageImage = "https://sarahal703.github.io/2025/img/shareresult1.png";
+    description = "あなたは落エネルギッシュで情熱的な性格です。";
+  } else if (fileName === "2.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png";
-    description = "あなたは落ち着きがあり、物事を冷静に判断できる性格です。";
+    description = "あなたは落ち着きがあり、物事を冷静に判断できる性格性格です！";
   } else if (fileName === "3.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult3.png";
     description = "あなたは情熱的でエネルギッシュな性格です！";
