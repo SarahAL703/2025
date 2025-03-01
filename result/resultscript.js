@@ -97,7 +97,7 @@ function changeLanguage(lang) {
     const fileName = urlParts[urlParts.length - 1]; // 1.html などのファイル名を取得
     const resultIndex = parseInt(fileName.replace(".html", "")) - 1 || 0;
 
-    console.log("resultIndex:", resultIndex); // ← ここで確認！
+    console.log("Invalid resultIndex: " + resultIndex); // エラーメッセージを文字列として正しく表示
 
     if (!translations[lang].strengthsList[resultIndex]) {
     console.error(Invalid resultIndex: ${resultIndex});
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (fileName === "1.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult1.png";
-    description = "あなたはエネルギッシュで情熱的性格です。　#ユーモアマイモア　#私の気質";
+    description = encodeURIComponent("あなたはエネルギッシュで情熱的性格です。　#ユーモアマイモア　#私の気質");
   } else if (fileName === "2.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png";
     description = "あなたは落ち着きがあり、物事を冷静に判断できるの持ち主です。　#ユーモアマイモア　#私の気質";
