@@ -156,9 +156,9 @@ document.querySelector('.share-twitter').href =
   document.querySelector('meta[name="twitter:image"]').setAttribute("content", pageImage);
 
   // シェアリンクも動的に更新
-const baseURL = window.location.origin + window.location.pathname;
+// URLエンコードしてシェアリンクを作成
 document.querySelector('.share-twitter').href =
-  `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)}&hashtags=ユーモアマイモア,私の気質`;  
+  `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)}&hashtags=ユーモアマイモア,私の気質`;
 document.querySelector('.share-facebook').href =
     https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseURL)};
   document.querySelector('.share-line').href =
