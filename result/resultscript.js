@@ -158,11 +158,11 @@ document.querySelector('.share-twitter').href =
   // シェアリンクも動的に更新
   const baseURL = window.location.origin + window.location.pathname;
   document.querySelector('.share-twitter').href =
-  `https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}%0A${encodeURIComponent(baseURL)}`;
+    https://twitter.com/intent/tweet?text=${encodeURIComponent(description)}&url=${encodeURIComponent(baseURL)};
   document.querySelector('.share-facebook').href =
-    `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseURL)}`;
+    https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseURL)};
   document.querySelector('.share-line').href =
-    `https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)}`;
+    https://line.me/R/msg/text/?${encodeURIComponent(description + "\n" + baseURL)};
 });
 
 
