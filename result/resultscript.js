@@ -161,5 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function goBack() {
+    console.log("トップに戻る"); // 追加してデバッグ
     window.location.href = "../index.html"; // これでも試してみて！
 }
