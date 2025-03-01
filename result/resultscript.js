@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (fileName === "1.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult1.png";
-    description = "あなたはエネルギッシュで情熱的性格です。";
+    description = "あなたはエネルギッシュで情熱的性格です。　＃ユーモアマイモア　＃私の気質";
   } else if (fileName === "2.html") {
     pageImage = "https://sarahal703.github.io/2025/img/shareresult2.png";
     description = "あなたは落ち着きがあり、物事を冷静に判断できるの持ち主です。";
